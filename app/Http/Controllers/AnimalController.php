@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Animal;
 use Illuminate\Http\Request;
+use App\Http\Requests\animalValidate;
 
 class AnimalController extends Controller
 {
@@ -14,7 +15,8 @@ class AnimalController extends Controller
      */
     public function index()
     {
-        return view('Animals.index');
+        $animals = Animal::latest()->paginate(10);
+        return view('Animals.index', compact('animals'));
     }
 
     /**
@@ -33,9 +35,16 @@ class AnimalController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, animalValidate $validate)
     {
-        //
+        // $this->validate([
+        //     'type'=> 'required',
+        //     'name'=> 'required',
+        //     'description'=> 'required'
+            
+        // ]);
+        Animal::create($request->all());
+        return redirect('/animals')->with('success', 'New animal succesfully added !');
     }
 
     /**
@@ -57,7 +66,7 @@ class AnimalController extends Controller
      */
     public function edit(Animal $animal)
     {
-        //
+        return view('Animals.edit', compact('animal'));
     }
 
     /**
@@ -69,7 +78,9 @@ class AnimalController extends Controller
      */
     public function update(Request $request, Animal $animal)
     {
-        //
+        $animal->update($request->all());
+
+        return redirect('/animals')->with('success','Animal updated');
     }
 
     /**
@@ -80,6 +91,8 @@ class AnimalController extends Controller
      */
     public function destroy(Animal $animal)
     {
-        //
+        $animal->delete();
+        return redirect('/animals')->with('success', 'Animal succesfully deleted !');
+        
     }
 }
