@@ -4,7 +4,7 @@
     <h1 class="text-center">Your Animals</h1>
 
     @if(Session::has('success'))
-    <div class="alert alert-success">
+    <div class="alert alert-success alert-dismissible fade show">
         {{Session::get('success')}}
     </div>
     @endif
@@ -25,8 +25,18 @@
             </thead>
             <tbody>
                 @foreach($animals as $animal)
-                    <tr>
-                        <td class="type">{{$animal->type}}</td>
+                  
+                        <?php
+                        // si le type envoyer correspond à reptile
+                            if(isset($_POST['type']) == "Reptile"){
+                                 echo" <tr class='reptile'>";                          
+                                } else if (isset($_POST['type']) == "Mammifère"){
+                                    echo" <tr class='mammifère'>";                          
+                                }  else if (isset($_POST['type']) == "Oiseau"){
+                                    echo" <tr class='oiseau'>";                          
+                                }
+                        ?>
+                        <td>{{$animal->type}}</td>
                         <td>{{$animal->name}}</td>
                         <td>{{$animal->description}}</td>
                         <td>

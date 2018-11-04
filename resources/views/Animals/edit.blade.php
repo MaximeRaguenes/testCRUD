@@ -12,11 +12,22 @@
         <form action="{{route('animals.update', $animal->id)}}" method="POST">
             <div class="form-group">
                 <select name="type" id="type" class="form-control">
-                
-                    <option value="{{$animal->type}}">{{$animal->type}}</option>
+                <?php
+                // garder le type choisi précédement 
+                // $checkedType = $_POST['type'];
+                $type = ["Reptile", "Mammifère", "Oiseau"];
+                $size = count($type);
+                // echo "<option value='".$checkedType."'>".$checkedType."</option>";
+                for ($i = 0; $i < $size; $i++) {
+
+                    echo "<option class='".$type[$i]."' value='" . $type[$i] . "'>" . $type[$i] . "</option>";
+                }
+
+                ?>
+                    <!-- <option value="{{$animal->type}}">{{$animal->type}}</option>
                     <option value="Reptile">Reptile</option>
                     <option value="Mammifère">Mammifère</option>
-                    <option value="Oiseau">Oiseau</option>
+                    <option value="Oiseau">Oiseau</option> -->
             </select>
             </div>
 
