@@ -13,20 +13,19 @@
         <form action="{{route('animals.store')}}" method="POST">
             <div class="form-group">
                 <select name="type" id="type" class="form-control">
-                <?php
-                $type = ["Reptile", "Mammifère", "Oiseau"];
-                $size = count($type);
+                    
+                    <?php
+                    $type = ["Reptile", "Mammifère", "Oiseau"];
+                    $size = count($type);
 
-                for ($i = 0; $i < $size; $i++) {
-
-                    echo "<option class='".$type[$i]."' value='" . $type[$i] . "'>" . $type[$i] . "</option>";
-                }
-
-                ?>
-                    <!-- <option value="Reptile">Reptile</option>
-                    <option value="Mammifère">Mammifère</option>
-                    <option value="Oiseau">Oiseau</option> -->
-            </select>
+                    for ($i = 0; $i < $size; $i++) {
+                        echo "<option class='".$type[$i]."' value='" . $type[$i] . "'>" . $type[$i] . "</option>";
+                    }
+                    ?>
+                        <!-- <option value="Reptile">Reptile</option>
+                        <option value="Mammifère">Mammifère</option>
+                        <option value="Oiseau">Oiseau</option> -->
+                </select>
             </div>
 
             <div class="form-group {{$errors->has('name') ? 'has-error' : ''}}">

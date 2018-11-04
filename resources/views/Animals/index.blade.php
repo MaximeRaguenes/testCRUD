@@ -27,22 +27,26 @@
             </thead>
             <tbody>
                 @foreach($animals as $animal)
-                  
-                        <?php
-                            // si le type envoyer correspond à reptile
-                            if(isset($_POST['type']) == "Reptile"){
-                                 echo" <tr class='reptile'>";       
-                                 // si le type envoyer correspond à mammifere
-                                } else if (isset($_POST['type']) == "Mammifère"){
-                                    echo" <tr class='mammifère'>";   
-                                    // si le type envoyer correspond à oiseau                      
-                                    } else if (isset($_POST['type']) == "Oiseau"){
-                                        echo" <tr class='oiseau'>";                          
-                                }
-                        ?>
+                  <tr>
+                     <?php
+                        // $type = isset($_POST['type']);
+                        //     // si le type envoyer correspond à reptile
+                        //     if($type == "Reptile"){
+                        //         echo "<td class='reptile'>.$animal->type.</td>";                                         
+                        //          // si le type envoyer correspond à mammifere
+                        //         } else if ($type == "Mammifère"){
+                        //             echo "<td class='mammifere'>".$animal->type."</td>";   
+                        //             // si le type envoyer correspond à oiseau                      
+                        //             } else if ($type == "Oiseau"){
+                        //             echo "<td class='oiseau'>.$animal->type.</td>";
+                                                                
+                        //         }
+
+                     ?>
+
                         <td>{{$animal->type}}</td>
                         <td>{{$animal->name}}</td>
-                        <td>{{$animal->description}}</td>
+                        <td>Je suis un {{$animal->name}}, j'ai {{$animal->description}}</td> 
                         <td>
                             <form action="{{route('animals.destroy', $animal->id)}}" method="POST">
                             <a href="{{route('animals.edit', $animal->id)}}" class="btn btn-warning" type="submit">
