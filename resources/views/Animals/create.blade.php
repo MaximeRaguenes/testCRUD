@@ -14,14 +14,14 @@
             <div class="form-group">
                 <select name="type" id="type" class="form-control">
                 <?php
-                    $type = ["Reptile", "Mammifère", "Oiseau"];
-                    $size = count($type);
-                
-                for ($i = 0; $i < $size; $i++){
+                $type = ["Reptile", "Mammifère", "Oiseau"];
+                $size = count($type);
 
-                    echo "<option value='".$type[$i]."'>".$type[$i]."</option>";
+                for ($i = 0; $i < $size; $i++) {
+
+                    echo "<option class='".$type[$i]."' value='" . $type[$i] . "'>" . $type[$i] . "</option>";
                 }
-                
+
                 ?>
                     <!-- <option value="Reptile">Reptile</option>
                     <option value="Mammifère">Mammifère</option>

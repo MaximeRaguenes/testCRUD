@@ -38,8 +38,8 @@
                 </span>
             </div>
 
-                <button type="submit" class="btn btn-success btn-block" ><i class="far fa-edit"> </i>
-                    <span>
+                <button type="submit" class="btn btn-success btn-block" >
+                    <span class="far fa-edit">
                         Edit
                     </span>
                 </button>

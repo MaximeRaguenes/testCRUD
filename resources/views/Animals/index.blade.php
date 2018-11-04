@@ -26,26 +26,34 @@
             <tbody>
                 @foreach($animals as $animal)
                     <tr>
-                        <td>{{$animal->type}}</td>
+                        <td class="type">{{$animal->type}}</td>
                         <td>{{$animal->name}}</td>
                         <td>{{$animal->description}}</td>
                         <td>
                             <form action="{{route('animals.destroy', $animal->id)}}" method="POST">
-                                <button class="btn btn-danger" type="submit">Delete</button>
-                                <a href="{{route('animals.edit', $animal->id)}}" class="btn btn-warning" type="submit">Edit</a>
+                            <a href="{{route('animals.edit', $animal->id)}}" class="btn btn-warning" type="submit">
+                                    <span class="far fa-edit">
+                                        Edit
+                                    </span>
+                            </a>
+                            <button class="btn btn-danger" type="submit"> 
+                                <span class="far fa-trash-alt">
+                                    Delete
+                                </span> 
+                            </button>
+                                
                                 @csrf
                                 @method('DELETE')
                             </form>
                         </td>
                     </tr>
-
                 @endforeach
             </tbody>
         </table>
 
-        
+
     </div>
-    
+
     <div class="pull-right">
                 <a class="btn btn-primary pull-right" href="{{ route('animals.create') }}"> <i class="fas fa-plus"></i>
                     <span>
