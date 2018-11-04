@@ -12,7 +12,7 @@
         <form action="{{route('animals.update', $animal->id)}}" method="POST">
             <div class="form-group">
                 <select name="type" id="type" class="form-control">
-                 <option value="type">{{$animal->type}}</option>
+                 <option value="{{$animal->type}}">{{$animal->type}}</option>
                 <?php
                 // garder le type choisi précédement 
                 // $checkedType = $_POST['type'];
