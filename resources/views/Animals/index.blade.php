@@ -22,18 +22,22 @@
                 <th>Type</th>
                 <th>Name</th>
                 <th>Description</th>
+                <th>Edit / Delete</th>
+
             </thead>
             <tbody>
                 @foreach($animals as $animal)
                   
                         <?php
-                        // si le type envoyer correspond à reptile
+                            // si le type envoyer correspond à reptile
                             if(isset($_POST['type']) == "Reptile"){
-                                 echo" <tr class='reptile'>";                          
+                                 echo" <tr class='reptile'>";       
+                                 // si le type envoyer correspond à mammifere
                                 } else if (isset($_POST['type']) == "Mammifère"){
-                                    echo" <tr class='mammifère'>";                          
-                                }  else if (isset($_POST['type']) == "Oiseau"){
-                                    echo" <tr class='oiseau'>";                          
+                                    echo" <tr class='mammifère'>";   
+                                    // si le type envoyer correspond à oiseau                      
+                                    } else if (isset($_POST['type']) == "Oiseau"){
+                                        echo" <tr class='oiseau'>";                          
                                 }
                         ?>
                         <td>{{$animal->type}}</td>
