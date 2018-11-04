@@ -26,7 +26,9 @@ class AnimalController extends Controller
      */
     public function create()
     {
-        return view('Animals.create');
+            return view('Animals.create');
+        // 
+
     }
 
     /**
@@ -36,13 +38,7 @@ class AnimalController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, animalValidate $validate)
-    {
-        // $this->validate([
-        //     'type'=> 'required',
-        //     'name'=> 'required',
-        //     'description'=> 'required'
-            
-        // ]);
+    {        
         Animal::create($request->all());
         return redirect('/animals')->with('success', 'New animal succesfully added !');
     }
